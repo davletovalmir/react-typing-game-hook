@@ -254,7 +254,7 @@ const useTypingGame = (
 
   const setCurrIndex = useCallback<TypingActionType['setCurrIndex']>(
     (num: number) => {
-      if (num < -1 || num >= states.length || states.phase !== 2) {
+      if (num < -1 || num >= states.length || states.phase === PhaseType.Ended) {
         return false;
       }
       dispatch({

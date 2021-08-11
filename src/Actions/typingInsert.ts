@@ -37,7 +37,7 @@ export default (
     chars[currIndex + 1] !== ' ' &&
     skipCurrentWordOnSpace
   ) {
-    let newIndex = chars.indexOf(letter, currIndex);
+    let newIndex = chars.indexOf(letter, currIndex + 1);
     currIndex = newIndex === -1 ? length - 1 : newIndex;
   } else {
     if (letter !== null) {
