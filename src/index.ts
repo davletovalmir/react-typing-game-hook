@@ -198,7 +198,7 @@ const useTypingGame = (
       countErrors: 'everytime',
       ...options,
     }),
-    [options]
+    [text, options]
   );
 
   const [states, dispatch] = useReducer<
