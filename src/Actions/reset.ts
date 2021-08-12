@@ -3,7 +3,7 @@ import { TypingStateType } from '../index';
 
 export default (state: TypingStateType, action: ActionItemType): TypingStateType => {
   const { payload } = action;
-  const chars: string = payload ? payload as string : state.chars;
+  const chars = payload ? payload as string : state.chars;
 
   return {
     ...state,

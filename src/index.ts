@@ -126,7 +126,7 @@ export interface TypingActionType {
   getDuration: () => number;
   /**
    * Reset the typing sequence.
-   * @param {string | null} text A text to be updated after the reset.
+   * @param {string | undefined} text A text to be updated after the reset.
    */
   resetTyping: (text?: string) => void;
   /**
@@ -223,8 +223,8 @@ const useTypingGame = (
   }, [states.phase, states.startTime, states.startTime]);
 
   const resetTyping = useCallback<TypingActionType['resetTyping']>(
-    (text?: string | null) => {
-      const payload = String(text);
+    (text?: string | undefined) => {
+      const payload = text;
       dispatch({ type: ActionType.RESET, payload });
     },
     [dispatch]
