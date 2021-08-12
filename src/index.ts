@@ -155,7 +155,7 @@ const reducer: Reducer<TypingStateType, ActionItemType> = (state, action) => {
     case ActionType.SETCURRENTINDEX:
       return SETCURRENTINDEX(state, action);
     case ActionType.RESET:
-      return RESET(state);
+      return RESET(state, action);
     case ActionType.END:
       return END(state);
     case ActionType.TYPINGINSERT:
@@ -222,8 +222,8 @@ const useTypingGame = (
   }, [states.phase, states.startTime, states.startTime]);
 
   const resetTyping = useCallback<TypingActionType['resetTyping']>(
-    () => dispatch({ type: ActionType.RESET }),
-    [dispatch]
+    () => dispatch({ type: ActionType.RESET, payload: text }),
+    [text, dispatch]
   );
 
   const endTyping = useCallback<TypingActionType['endTyping']>(
