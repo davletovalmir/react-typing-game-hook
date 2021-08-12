@@ -6,6 +6,7 @@ const sleep = (duration: number) =>
 
 describe('useTypingPractice hook tests', () => {
   const test = 'The quick brown fox jumps over the lazy dog';
+  const test2 = 'The quick brown fox jumps over the lazy dog cat';
   const initialState = {
     startTime: null,
     endTime: null,
@@ -309,6 +310,15 @@ describe('useTypingPractice hook tests', () => {
       result.current.actions.resetTyping();
     });
     expect(result.current.states).toEqual(initialState);
+  });
+
+  it('can reset with new text', () => {
+    const { result } = renderHook(() => useTypingTest(test));
+    act(() => {
+      result.current.actions.insertTyping('T');
+      result.current.actions.resetTyping(test2);
+    });
+    expect(result.current.states.chars).toEqual(test2);
   });
 
   it('can end', () => {

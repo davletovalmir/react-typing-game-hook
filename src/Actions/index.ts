@@ -7,7 +7,7 @@ export enum ActionType {
 }
 
 export type ActionItemType =
-  | { type: ActionType.RESET; payload?: undefined }
+  | { type: ActionType.RESET; payload: string | null }
   | { type: ActionType.END; payload?: undefined }
   | { type: ActionType.TYPINGDELETE; payload: boolean }
   | { type: ActionType.TYPINGINSERT; payload: string | null }
